@@ -7,6 +7,7 @@ Project: 1 - Recursive Merge Sort on a Linked List
 #include <stdlib.h>
 #include <stdio.h>
 
+//node structure
 struct node{
     int data;
     struct node* next;
@@ -19,7 +20,6 @@ struct node* merge(struct node* head1, struct node* head2);
 struct node* mergesort(struct node* head, int size);
 
 int main(){
-
     struct node* head2 = NULL;
     push(&head2, 3);
     push(&head2, 4);
@@ -63,6 +63,7 @@ int main(){
     return 0;
 }
 
+//adds a new node to the start of the list, head is changed to the new node
 void push(struct node** head, int new_data){
     struct node* new_node = (struct node*) malloc(sizeof(struct node));
     new_node->data = new_data;
@@ -71,6 +72,7 @@ void push(struct node** head, int new_data){
     return;
 }
 
+//prints linked list with arrows to each next node
 void printlist(struct node* head){
     struct node* cur = head;
     while(cur){
@@ -80,6 +82,7 @@ void printlist(struct node* head){
     printf("\n");
 }
 
+//returns the amount of nodes in a list
 int list_len(struct node* head){
     struct node* cur = head;
     int counter = 0;
@@ -90,15 +93,12 @@ int list_len(struct node* head){
     return counter;
 }
 
+//helper function for mergesort, merges left and right sides back togther in sorted order
 struct node* merge(struct node* head1, struct node* head2){
-    
     struct node* left = head1;
     struct node* right = head2;
     struct node* curr = NULL;
     struct node* head = NULL;
-    //printf("merge-left:::"); printlist(left);
-    //printf("merge-right:::"); printlist(right);
-
     if(left && right){
         if(left->data <= right->data){
             head = left;
@@ -116,7 +116,6 @@ struct node* merge(struct node* head1, struct node* head2){
     else{
         return right;
     }
-    //-------------------------------//
     while(left && right){
         if(left->data <= right->data){
             curr->next = left;
@@ -139,10 +138,10 @@ struct node* merge(struct node* head1, struct node* head2){
         curr = curr->next;
         right = right->next;
     }
-    //printf("after merge:::"); printlist(head);
     return head;
 }
 
+//recursively descends the list, splitting the nodes and then calling merge to merge them back. Returns the head of the sorted list
 struct node* mergesort(struct node* head, int size){
     struct node* left = head;
     struct node* right = head;
@@ -154,8 +153,6 @@ struct node* mergesort(struct node* head, int size){
         }
         left->next = NULL;
         left = head;
-        //printf("left:::"); printlist(left);
-        //printf("right:::"); printlist(right);
         left = mergesort(left, size/2);
         right = mergesort(right, size-(size/2));
         left = merge(left,right);
