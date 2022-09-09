@@ -9,7 +9,7 @@ Implementation:
      - reference via a head node
      - Helper functions: push (add node to start of list), 
                          printlist(prints all the data in the nodes in order), 
-                         list_len(returns the amount of nodes in the list)
+                         listlen(returns the amount of nodes in the list)
 - Merge Sort
      - recursive algorithm that continually calls itself on the left half and right half of the list
      - after descending until there is one node in each list, merge is called on the two sides which 
@@ -26,7 +26,7 @@ struct node{
 
 void push(struct node** head, int new_data);
 void printlist(struct node* head);
-int list_len(struct node* head);
+int listlen(struct node* head);
 struct node* merge(struct node* head1, struct node* head2);
 struct node* mergesort(struct node* head, int size);
 
@@ -36,7 +36,7 @@ int main(){
     struct node* head3 = NULL;
     printf("empty case:\n");
     printf("before: "); printlist(head3);
-    head3 = mergesort(head3, list_len(head3));
+    head3 = mergesort(head3, listlen(head3));
     printf("after:  "); printlist(head3);
     printf("\n");
 
@@ -45,7 +45,7 @@ int main(){
     printf("one item case:\n");
     push(&head4, 1);
     printf("before: "); printlist(head4);
-    head4 = mergesort(head4, list_len(head4));
+    head4 = mergesort(head4, listlen(head4));
     printf("after:  "); printlist(head4);
     printf("\n");
 
@@ -55,7 +55,7 @@ int main(){
     push(&head5, 1);
     push(&head5, 2);
     printf("before: "); printlist(head5);
-    head5 = mergesort(head5, list_len(head5));
+    head5 = mergesort(head5, listlen(head5));
     printf("after:  "); printlist(head5);
     printf("\n");
 
@@ -68,7 +68,7 @@ int main(){
     push(&head2, 6);
     push(&head2, 1);
     printf("before: "); printlist(head2);
-    head2 = mergesort(head2, list_len(head2));
+    head2 = mergesort(head2, listlen(head2));
     printf("after:  "); printlist(head2);
     printf("\n");
 
@@ -82,7 +82,7 @@ int main(){
     push(&head6, 4);
     push(&head6, 6);
     printf("before: "); printlist(head6);
-    head6 = mergesort(head6, list_len(head6));
+    head6 = mergesort(head6, listlen(head6));
     printf("after:  "); printlist(head6);
     printf("\n");
 
@@ -109,7 +109,7 @@ void printlist(struct node* head){
 }
 
 //returns the amount of nodes in a list
-int list_len(struct node* head){
+int listlen(struct node* head){
     struct node* cur = head;
     int counter = 0;
     while(cur){
