@@ -59,17 +59,54 @@ int main(){
     printf("after:  "); printlist(head5);
     printf("\n");
 
+    //three items test case
+    struct node* head8 = NULL;
+    printf("three items case:\n");
+    push(&head8, 2);
+    push(&head8, 3);
+    push(&head8, 1);
+    printf("before: "); printlist(head8);
+    head8 = mergesort(head8, listlen(head8));
+    printf("after:  "); printlist(head8);
+    printf("\n");
+
+    //four items test case
+    struct node* head9 = NULL;
+    printf("four items case:\n");
+    push(&head9, 1);
+    push(&head9, 3);
+    push(&head9, 2);
+    push(&head9, 4);
+    printf("before: "); printlist(head9);
+    head9 = mergesort(head9, listlen(head9));
+    printf("after:  "); printlist(head9);
+    printf("\n");
+
+
     //five items test case
     struct node* head2 = NULL;
     printf("five items case:\n");
     push(&head2, 3);
     push(&head2, 4);
     push(&head2, 2);
-    push(&head2, 6);
+    push(&head2, 5);
     push(&head2, 1);
     printf("before: "); printlist(head2);
     head2 = mergesort(head2, listlen(head2));
     printf("after:  "); printlist(head2);
+    printf("\n");
+
+    //five items inorder test case
+    struct node* head7 = NULL;
+    printf("five items inorder case:\n");
+    push(&head7, 5);
+    push(&head7, 4);
+    push(&head7, 3);
+    push(&head7, 2);
+    push(&head7, 1);
+    printf("before: "); printlist(head7);
+    head7 = mergesort(head7, listlen(head7));
+    printf("after:  "); printlist(head7);
     printf("\n");
 
     //six items test case 
