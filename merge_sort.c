@@ -188,7 +188,7 @@ struct node* mergesort(struct node* head, int size){
         left = head; //point the left pointer back to the head of the left list
         left = mergesort(left, size/2); //call merge_sort on the left side
         right = mergesort(right, size-(size/2)); //call merge_sort on the right side
-        head = merge(left,right); // merge the left and right sides
+        head = merge(left,right); // merge the left and right sides and set them to the head
     }
 
     return head; 
